@@ -1,22 +1,33 @@
 from django.db import models
-from django.core.exceptions import ValidationError
 from django.utils import timezone
 
-def vefecha(valor):
-    if valor > timezone.now().date():
-        raise ValidationError("La fecha de nacimiento no puede ser futura.")
+class User(models.Model):
+    nombre = models.CharField(max_length=30)
+    apellido = models.CharField(max_length=30)
+    numero = models.CharField(max_length=10)
+    correo = models.CharField(max_length=30)
+    direccion = models.CharField(max_length=50)
+    rut = models.CharField(max_length=10)
 
-def vedad(valor):
-    if valor > 99:
-        raise ValidationError("La edad no puede ser mayor que 99.")
-    
-def vedad2(valor):
-    if valor < 0: 
-        raise ValidationError("La edad no puede ser negativa.")
+    def __str__(self):
+        return f"{self.id} - {self.nombre}"
+
 
 class modelo_mas(models.Model):
     nombre = models.CharField(max_length=20)
     tipo = models.CharField(max_length=20)
     raza = models.CharField(max_length=20)
-    edad = models.IntegerField(validators=[vedad,vedad2])
-    fecha_nacimiento = models.DateField(validators=[vefecha])
+    edad = models.IntegerField()
+    fecha_nacimiento = models.DateField()
+    id_usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.id} - {self.nombre}"
+    
+
+class Consulta(models.Model):
+    id_mascota = models.ForeignKey(modelo_mas, on_delete=models.CASCADE)
+    fecha = models.DateField()
+    sucursal = models.CharField(max_length=30)
+    veterinario = models.CharField(max_length=30)
+    diagnostico = models.CharField(max_length=100)
