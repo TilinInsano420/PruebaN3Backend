@@ -124,7 +124,7 @@ def actualizarConsulta(request, id):
     return render(request, 'app/agregarConsulta.html', data)
 
 
-def eliminarConsulta(request,id):
-    user = User.objects.get(id=id)
-    user.delete()
+def eliminarConsulta(request, id):
+    consulta = get_object_or_404(Consulta, id=id)
+    consulta.delete()
     return redirect('/consultas')
