@@ -22,7 +22,7 @@ def agregar (request):
         if form.is_valid():
             try:
                 form.save()
-                return index (request)
+                return redirect('/listado')
             except ValidationError as e:
                 form.add_error(None,e)
     
@@ -43,7 +43,7 @@ def actualizar (request,id):
         if form.is_valid():
             try:
                 form.save()
-                return index(request)
+                return redirect('/listado')
             except ValidationError as e:
                 form.add_error(None,e)
     data = {'form': form, 'titulo': 'Editar Mascota','boton_texto': 'Guardar Cambios'}
@@ -65,7 +65,7 @@ def agregarUser(request):
         if form.is_valid():
             form.save()
         return redirect('/usuarios')
-    data = {'form':form}
+    data = {'form':form, 'titulo': 'Agregar usuario','boton_texto': 'Agregar usuario'}
     return render(request,'app/agregarUsuario.html',data)
 
 
@@ -78,7 +78,7 @@ def actualizarUser(request,id):
         if form.is_valid():
             form.save()
         return redirect('/usuarios')
-    data = {'form':form}
+    data = {'form':form, 'titulo': 'Editar usuario','boton_texto': 'Guardar Cambios'}
     return render(request,'app/agregarUsuario.html',data)
 
 def eliminarUser(request,id):
@@ -104,22 +104,25 @@ def agregarConsulta(request):
         form = FormConsulta(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('/consultas')
-    data = {'form':form}
-    return render(request,'app/agregarConsulta.html',data)
+            return redirect('/consultas')
+        else:
+            print(form.errors)
+    data = {'form': form, 'titulo': 'Agregar consulta', 'boton_texto': 'Agregar consulta'}
+    return render(request, 'app/agregarConsulta.html', data)
 
-
-
-def actualizarConsulta(request,id):
-    consulta = Consulta.objects.get(id=id)
+def actualizarConsulta(request, id):
+    consulta = get_object_or_404(Consulta, id=id)
     form = FormConsulta(instance=consulta)
-    if request.method=='POST':
-        form = FormConsulta(request.POST,instance=consulta)
+    if request.method == 'POST':
+        form = FormConsulta(request.POST, instance=consulta)
         if form.is_valid():
             form.save()
-        return redirect('/consultas')
-    data = {'form':form}
-    return render(request,'app/agregarConsulta.html',data)
+            return redirect('/consultas')
+        else:
+            print(form.errors)
+    data = {'form': form, 'titulo': 'Editar Consulta', 'boton_texto': 'Guardar Cambios'}
+    return render(request, 'app/agregarConsulta.html', data)
+
 
 def eliminarConsulta(request,id):
     user = User.objects.get(id=id)

@@ -106,7 +106,7 @@ class FormMascota(forms.ModelForm):
 class FormConsulta(forms.ModelForm):
     class Meta:
         model = Consulta
-        fields = '__all__'
+        fields = ['id_mascota', 'fecha', 'sucursal', 'veterinario', 'diagnostico']
         widgets = {
             'id_mascota': forms.Select(attrs={'class': 'form-control'}),
             'fecha': forms.DateInput(attrs={'class': 'form-control', 'type': 'date', 'title': 'La fecha de la consulta no puede ser futura.'}),
