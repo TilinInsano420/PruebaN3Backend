@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'pro1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mascota',
+        'NAME': 'veterinaria',
         'USER': 'root',
         'PASSWORD': ''
     }
