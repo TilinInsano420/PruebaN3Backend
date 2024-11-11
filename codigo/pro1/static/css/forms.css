@@ -122,6 +122,8 @@ body.container {
 .btn-submit:hover::before, .btn-link:hover::before {
     transform: scaleX(1);
     transform-origin: right;
+    background-color: #28a745;
+    color: #fff;
 }
 
 .btn-link:hover, .btn-submit:hover {

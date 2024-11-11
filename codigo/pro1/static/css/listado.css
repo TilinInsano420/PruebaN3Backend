@@ -1,3 +1,4 @@
+
 body {
     background: #00002E;
     color: #6098FF;
@@ -75,64 +76,35 @@ body {
     border: none;
     cursor: pointer;
     background-color: #08080f;
+    border-radius: 5%;
     overflow: hidden;
+    transition: background-color 0.4s ease;
 }
 
-.btn::before, .btn-add::before, .btn-secondary::before, .btn-back::before, .btn-update::before, .btn-delete::before {
-    content: '';
-    position: absolute;
-    bottom: 50%;
-    left: 0px;
-    width: 100%;
-    height: 1px;
-    background: #6098FF;
-    display: block;
-    transform-origin: left top;
-    transform: scale(0, 1);
-    transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
-}
-
-.btn:hover::before, .btn-add:hover::before, .btn-secondary:hover::before, .btn-back:hover::before, .btn-update:hover::before, .btn-delete:hover::before {
-    transform-origin: right top;
-    transform: scale(1, 1);
-}
-
-.btn3::before, .btn-add::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-color: #000;
-    transform: scaleX(.3);
-    opacity: 0;
-    transition: all .3s;
-}
-
-.btn3:hover::before, .btn-add:hover::before {
-    opacity: 1;
+.btn:hover, .btn-add:hover, .btn-secondary:hover, .btn-back:hover, .btn-update:hover, .btn-delete:hover {
     background-color: #6098FF;
-    transform: scaleX(1);
-    transition: transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity .4s;
+    color: #fff;
 }
+
 
 .btn-update {
     background-color: #28a745;
+    border-radius: 5%;
 }
 
 .btn-delete {
     background-color: #dc3545;
+    border-radius: 5%;
 }
 
 .btn-secondary {
     background-color: #6c757d;
+    border-radius: 5%;
 }
 
 .btn-back {
     background-color: #343a40;
+    border-radius: 5%;
 }
 
 .action-buttons a {
