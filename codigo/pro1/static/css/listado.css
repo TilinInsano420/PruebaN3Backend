@@ -1,0 +1,97 @@
+/* Estructura general */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0 auto;
+    max-width: 80%;
+    background-color: #f4f7f9;
+}
+
+.header h1 {
+    text-align: center;
+    color: #555;
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.no-records {
+    text-align: center;
+    font-size: 1.2em;
+    color: #777;
+    margin-top: 30px;
+}
+
+/* Tabla */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.styled-table thead tr {
+    background-color: #3f87a6;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #3f87a6;
+}
+
+/* Botones */
+.btn {
+    padding: 10px 15px;
+    color: white;
+    border: none;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.btn-update {
+    background-color: #28a745;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+}
+
+.btn-add {
+    background-color: #007bff;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+.btn-back {
+    background-color: #343a40;
+}
+
+.action-buttons a {
+    margin-right: 5px;
+}
